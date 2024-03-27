@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float Speed;
     private Vector2 _movementVector;
     private Rigidbody _rB;
+ 
     void Start()
     {
         _rB = GetComponent<Rigidbody>();
