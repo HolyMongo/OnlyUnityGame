@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IDamagable : MonoBehaviour
+public interface IDamagable
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    /// <summary>
+    /// Makes the Damagable object take damage
+    /// </summary>
+    /// <param name="damage"> The amount of damage the damagable object should take</param>
+    /// <returns></returns>
+    public void TakeDamage(float damage);
 }
