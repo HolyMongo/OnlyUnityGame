@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public float Speed;
+    public float JumpSpeed;
+
     private Vector2 _movementVector;
     private Rigidbody _rB;
  
@@ -22,5 +24,9 @@ public class PlayerMovement : MonoBehaviour
     void OnMove(InputValue movementValue)
     {
         _movementVector = movementValue.Get<Vector2>();
+    }
+    void OnJump()
+    {
+        _rB.AddForce(0f, JumpSpeed, 0f);
     }
 }
