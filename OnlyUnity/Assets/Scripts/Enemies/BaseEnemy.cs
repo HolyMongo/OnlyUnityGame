@@ -19,7 +19,7 @@ public class BaseEnemy : MonoBehaviour, IDamagable
         health -= damage;
         if (health <= 0)
         {
-            //dead
+            Debug.Log("Dead");
         }
     }
 }
