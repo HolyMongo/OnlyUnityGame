@@ -6273,7 +6273,7 @@ GameObject:
   - component: {fileID: 711167477}
   - component: {fileID: 711167476}
   - component: {fileID: 711167475}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7394,16 +7394,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd79d6f1ee317c8489f28f479a172eb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  awareOfThePlayer: 0
-  detectionRadius: 0
+  awareOfThePlayer: 1
+  detectionRadius: 3
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   layerMask2:
     serializedVersion: 2
     m_Bits: 0
   player: {fileID: 0}
-  agent: {fileID: 0}
+  agent: {fileID: 834256407}
   pathfindinginterval: 0.5
 --- !u!4 &834256409
 Transform:
@@ -7414,7 +7414,7 @@ Transform:
   m_GameObject: {fileID: 834256406}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.96, y: 1.13, z: 30.77}
+  m_LocalPosition: {x: 0.86, y: 1.13, z: 20.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13402,7 +13402,7 @@ GameObject:
   - component: {fileID: 1689045886}
   - component: {fileID: 1689045885}
   - component: {fileID: 1689045888}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}

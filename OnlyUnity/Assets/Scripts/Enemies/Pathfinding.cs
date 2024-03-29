@@ -32,6 +32,7 @@ public class Pathfinding : MonoBehaviour
         Debug.Log("test");
         if (Physics.SphereCast(transform.position, detectionRadius, Vector3.forward, out RaycastHit hitInfo, 0.01f, layerMask))
         {
+            Debug.Log("Found player");
             player = hitInfo.transform;
             if (Physics.Raycast(transform.position, player.position - transform.position, out hitInfo, Vector3.Distance(player.position, transform.position) + 10, layerMask2))
             {
@@ -69,5 +70,25 @@ public class Pathfinding : MonoBehaviour
     private void PathfindToPlayer()
     {
         agent.destination = player.position;
+    }
+    private void OnDrawGizmosSelected()
+    {
+        // Set the color of the SphereCast visualization
+        Gizmos.color = Color.red;
+
+        // Perform the SphereCast
+        if (Physics.SphereCast(transform.position, detectionRadius, Vector3.forward, out RaycastHit hitInfo, 0.01f, layerMask))
+        {
+            // Draw a line from the current position to the point of contact
+            Gizmos.DrawLine(transform.position, hitInfo.point);
+
+            // Draw a small sphere at the point of contact
+            Gizmos.DrawSphere(hitInfo.point, 0.1f);
+        }
+        else
+        {
+            // If no collision, just draw a SphereCast from the current position
+            Gizmos.DrawWireSphere(transform.position + Vector3.forward * 0.01f, detectionRadius);
+        }
     }
 }
