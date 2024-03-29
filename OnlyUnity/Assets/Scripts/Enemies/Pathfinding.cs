@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class Pathfinding : MonoBehaviour
 {
 
-    [Tooltip("true if the enemy knows where the player is")][SerializeField] private bool awareOfThePlayer;
+    [Tooltip("True if the enemy knows where the player is")][SerializeField] private bool awareOfThePlayer;
 
     [Space]
     [Header("Detection")]
@@ -17,36 +17,44 @@ public class Pathfinding : MonoBehaviour
 
     [Space]
     [Header("Pathfinding")]
-    [Tooltip("the player transform. This variable automatically gets a value whenever the player is detected")][SerializeField] private Transform player;
-    [Tooltip("the reference to the navmesh agent")][SerializeField] private NavMeshAgent agent;
+    [Tooltip("The player transform. This variable automatically gets a value whenever the player is detected")][SerializeField] private Transform player;
+    [Tooltip("The reference to the navmesh agent")][SerializeField] private NavMeshAgent agent;
     [Tooltip("The time between eavh attempt to find the player and calculate a new path")][SerializeField] private float pathfindinginterval = 0.5f;
 
     void Start()
     {
         agent = transform.GetComponent<NavMeshAgent>();
         InvokeRepeating("CheckForPlayer", 0.5f, pathfindinginterval);
+        
     }
     private void CheckForPlayer()
     {
-        Physics.CheckSphere(transform.position, detectionRadius, layerMask);
-        if (Physics.CheckSphere(transform.position, detectionRadius, layerMask))
+        Debug.Log("test");
+        if (Physics.SphereCast(transform.position, detectionRadius, Vector3.forward, out RaycastHit hitInfo, 0.01f, layerMask))
         {
-            if (Physics.Raycast(transform.position, player.position - transform.position, out RaycastHit hitInfo, Vector3.Distance(player.position, transform.position) + 10, layerMask2))
+            player = hitInfo.transform;
+            if (Physics.Raycast(transform.position, player.position - transform.position, out hitInfo, Vector3.Distance(player.position, transform.position) + 10, layerMask2))
             {
-                if (/*hitInfo.transform.gameObject.layer == .... om saken raycasten träffade har layern Player*/true)
+                if (/*hitInfo.transform.gameObject.layer == .... om saken raycasten träffade har layern Player --- (1 << hitInfo.transform.gameObject.layer) == layerMask.value*/ hitInfo.transform == player)
                 {
                     //sätt det träffade objectet som våran target och sedan kalla på metoden nedan
+                    player = hitInfo.transform;
                     PathfindToPlayer();
                 }
             }
         }
-        else if (awareOfThePlayer)
+        else
         {
-            if (/*destination reache*/ true)
-            {
-                //Om vi når våran destination där vi såg spelaren men kan inte se hen nu så väntar vi i x sekunder sedan återvänder vi till våran orginella plats
-            }
+            Debug.Log("Player Not found");
         }
+        
+        //else if (awareOfThePlayer)
+        //{
+        //    if (/*destination reache*/ true)
+        //    {
+        //        //Om vi når våran destination där vi såg spelaren men kan inte se hen nu så väntar vi i x sekunder sedan återvänder vi till våran orginella plats
+        //    }
+        //}
     }
     // Update is called once per frame
     void Update()
