@@ -14,22 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyArray:
   - name: Exploding Enemy
-    health: 0
+    health: 100
     speed: 0
     damage: 0
     type: 0
   - name: Ranged Enemy
-    health: 0
+    health: 200
     speed: 0
     damage: 0
     type: 1
   - name: Mele Enemy
-    health: 0
+    health: 300
     speed: 0
     damage: 0
     type: 2
   - name: Spawner Enemy
-    health: 0
+    health: 400
     speed: 0
     damage: 0
     type: 3
