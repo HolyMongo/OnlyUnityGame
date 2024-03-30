@@ -21,6 +21,10 @@ public class Pathfinding : MonoBehaviour
     [Tooltip("The reference to the navmesh agent")][SerializeField] private NavMeshAgent agent;
     [Tooltip("The time between eavh attempt to find the player and calculate a new path")][SerializeField] private float pathfindinginterval = 0.5f;
 
+    [Space]
+    [Header("Testing")]
+    [Tooltip("")] [SerializeField] private Collider[] detectedPlayers;
+
     void Start()
     {
         agent = transform.GetComponent<NavMeshAgent>();
@@ -30,11 +34,15 @@ public class Pathfinding : MonoBehaviour
     private void CheckForPlayer()
     {
         Debug.Log("test");
-        if (Physics.SphereCast(transform.position, detectionRadius, Vector3.forward, out RaycastHit hitInfo, 0.01f, layerMask))
+        Debug.Log(transform.position);
+
+        detectedPlayers = Physics.OverlapSphere(transform.position, detectionRadius, layerMask);
+        if (detectedPlayers[0] != null)
         {
+            player = detectedPlayers[0].transform;
             Debug.Log("Found player");
-            player = hitInfo.transform;
-            if (Physics.Raycast(transform.position, player.position - transform.position, out hitInfo, Vector3.Distance(player.position, transform.position) + 10, layerMask2))
+
+            if (Physics.Raycast(transform.position, player.position - transform.position, out RaycastHit hitInfo, Vector3.Distance(player.position, transform.position) + 10, layerMask2))
             {
                 if (/*hitInfo.transform.gameObject.layer == .... om saken raycasten träffade har layern Player --- (1 << hitInfo.transform.gameObject.layer) == layerMask.value*/ hitInfo.transform == player)
                 {
@@ -48,6 +56,26 @@ public class Pathfinding : MonoBehaviour
         {
             Debug.Log("Player Not found");
         }
+
+        //if (Physics.SphereCast(transform.position, detectionRadius, Vector3.forward, out RaycastHit hitInfo, 0.01f, layerMask, QueryTriggerInteraction.Ignore))
+        //{
+        //    Debug.Log("Found player");
+        //    player = hitInfo.transform;
+            
+        //    if (Physics.Raycast(transform.position, player.position - transform.position, out hitInfo, Vector3.Distance(player.position, transform.position) + 10, layerMask2))
+        //    {
+        //        if (/*hitInfo.transform.gameObject.layer == .... om saken raycasten träffade har layern Player --- (1 << hitInfo.transform.gameObject.layer) == layerMask.value*/ hitInfo.transform == player)
+        //        {
+        //            //sätt det träffade objectet som våran target och sedan kalla på metoden nedan
+        //            player = hitInfo.transform;
+        //            PathfindToPlayer();
+        //        }
+        //    }
+        //}
+        //else
+        //{
+        //    Debug.Log("Player Not found");
+        //}
         
         //else if (awareOfThePlayer)
         //{
