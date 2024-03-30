@@ -1,0 +1,18 @@
+To do:
+
+kod:
+- ändra pathfinding så att den beter sig lite olika beroende på om det är ranged eller melee
+- få fiender att attackera
+- få spelaren att attackera
+- få spelaren att ta skada av fiender
+- få spelaren att kunna interagera med object
+
+design:
+- göra alla banor
+- göra fiender
+
+
+
+Att göra om vi har tid:
+- få spelaren att kunna byta mellan melee och Ranged attacks
+- olika typer på fiender (is, eld, gift m.m.)
