@@ -6,39 +6,49 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Speed")]
-    public float Speed;
-    public float JumpSpeed;
-
-    [Header("Also Speed")]
+    [SerializeField] private float Speed;
     private Vector2 _movementVector;
-    private Rigidbody _rB;
+   
 
-    [Header("Jump Things")]
-    public float groundDistance = 0.4f;
-    public LayerMask ground;
+    [Header("Jump")]
+    [SerializeField] private float jumpHeight;
+    [SerializeField] private float groundDistance = 0.4f;
+    [SerializeField] private LayerMask ground;
+    private bool _groundedPlayer;
+    private float _gravityValue = -9.81f;
+    private Vector3 playerVelocity;
+
     private Transform _cameraTransform;
-    private void Awake()
+    private CharacterController _controller;
+
+    void Awake()
     {
-    }
-    void Start()
-    {
-        _rB = GetComponent<Rigidbody>();
+        _controller = GetComponent<CharacterController>();
         _cameraTransform = Camera.main.transform;
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-       // transform.Translate(_movementVector.x * Speed * Time.deltaTime, 0.0f, _movementVector.y * Speed * Time.deltaTime, Space.Self);
-        //  _rB.AddForce(_movementVector.x *  Speed, 0.0f, _movementVector.y * Speed);
-
+        _groundedPlayer = _controller.isGrounded;
+        if (_groundedPlayer && playerVelocity.y < 0)
+        {
+            playerVelocity.y = 0f;
+        }
 
         Vector3 movementDirection = _cameraTransform.forward * _movementVector.y + _cameraTransform.right * _movementVector.x;
-        movementDirection.y = 0f; // Ensure movement is only in the horizontal plane
-        movementDirection.Normalize(); // Normalize to ensure consistent movement speed
+         // movementDirection.y = 0f; // Ensure movement is only in the horizontal plane
+          movementDirection.Normalize(); // Normalize to ensure consistent movement speed
 
-        // Apply force in the direction of movement
-        _rB.AddForce(movementDirection * Speed);
+        _controller.Move(movementDirection * Speed * Time.deltaTime);
+
+        //if (movementDirection != Vector3.zero)
+        //{
+        //    gameObject.transform.forward = movementDirection;
+        //}
+
+        playerVelocity.y += _gravityValue * Time.deltaTime;
+        _controller.Move(playerVelocity * Time.deltaTime);
     }
     void OnMove(InputValue movementValue)
     {
@@ -46,9 +56,9 @@ public class PlayerMovement : MonoBehaviour
     }
     void OnJump()
     {
-        if(Physics.CheckSphere(transform.position, groundDistance, ground))
+        if (Physics.CheckSphere(transform.position, groundDistance, ground))
         {
-            _rB.AddForce(0f, JumpSpeed, 0f);
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * _gravityValue);
         }
     }
     private void OnDrawGizmosSelected()
@@ -56,3 +66,4 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position + Vector3.forward * 0.01f, groundDistance);
     }
 }
+//https://docs.unity3d.com/ScriptReference/CharacterController.Move.html
