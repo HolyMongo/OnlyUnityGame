@@ -2,15 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class NPC : MonoBehaviour, IInteractable
 {
     [SerializeField] private Dialog dialog;
-    [SerializeField] private GameObject canInteractObject;
-    [SerializeField] private GameObject canInteractDialog;
+    [SerializeField] private GameObject canInteractObject; // Floating object
+    [SerializeField] private GameObject canInteractCrosshair; // Interact color
     [SerializeField] private bool canInteract = true;
     public GameObject eye;
-    // [SerializeField] private GameObject canInteractObject;
+    [SerializeField] private Color highlightColor; // Color to change to when player enters trigger
+
+    private Image crosshairImage;
+    private Color originalColor;
+
+    private void Start()
+    {
+        // Get the Image component of the crosshair GameObject
+        crosshairImage = canInteractCrosshair.GetComponent<Image>();
+        // Store the original color of the crosshair
+        originalColor = crosshairImage.color;
+    }
     public void Interact()
     {
         if(canInteract)
@@ -18,13 +30,14 @@ public class NPC : MonoBehaviour, IInteractable
             StartCoroutine(DialogManager.Instance.ShowDialog(dialog));
             canInteract = false;
             canInteractObject.SetActive(false);
+            crosshairImage.color = originalColor;
         }
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player") && canInteract)
         {
-            canInteractDialog.SetActive(true);
+            crosshairImage.color = highlightColor;
             Debug.Log("Player entered");
         }
           
@@ -45,6 +58,6 @@ public class NPC : MonoBehaviour, IInteractable
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player") && canInteract)
-            canInteractDialog.SetActive(false);
+            crosshairImage.color = originalColor;
     }
 }

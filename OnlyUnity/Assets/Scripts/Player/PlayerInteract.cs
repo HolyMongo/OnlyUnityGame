@@ -7,10 +7,10 @@ public class PlayerInteract : MonoBehaviour
 {
     [SerializeField] private LayerMask nonWalkable;
     public Collider[] target;
-    [SerializeField] private GameObject canInteractDialog;
+   // [SerializeField] private GameObject canInteractDialog;
     void OnInteract()
     {
-        canInteractDialog.SetActive(false);
+       // canInteractDialog.SetActive(false);
         target = null;
         target = Physics.OverlapSphere(transform.position, 0.5f, nonWalkable);
         if (target.Length > 0)
