@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void HandleUpdate()
     {
         _groundedPlayer = _controller.isGrounded;
         if (_groundedPlayer && playerVelocity.y < 0)
