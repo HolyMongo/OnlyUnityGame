@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Vector3 movementDirection = _cameraTransform.forward * _movementVector.y + _cameraTransform.right * _movementVector.x;
-         // movementDirection.y = 0f; // Ensure movement is only in the horizontal plane
+          movementDirection.y = 0f; // Ensure movement is only in the horizontal plane
           movementDirection.Normalize(); // Normalize to ensure consistent movement speed
 
         _controller.Move(movementDirection * Speed * Time.deltaTime);
