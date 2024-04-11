@@ -21,7 +21,7 @@ public class NPC : MonoBehaviour, IInteractable
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && canInteract)
         {
             canInteractDialog.SetActive(true);
             Debug.Log("Player entered");
@@ -30,7 +30,7 @@ public class NPC : MonoBehaviour, IInteractable
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && canInteract)
             canInteractDialog.SetActive(false);
     }
 }
