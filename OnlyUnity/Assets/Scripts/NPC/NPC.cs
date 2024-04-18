@@ -9,6 +9,7 @@ public class NPC : MonoBehaviour, IInteractable
     [SerializeField] private Dialog dialog;
     [SerializeField] private GameObject canInteractObject; // Floating object
     [SerializeField] private GameObject canInteractCrosshair; // Interact color
+    [SerializeField] private GameObject InteractImage; // Image of NPC
     [SerializeField] private bool canInteract = true;
     public GameObject eye;
     [SerializeField] private Color highlightColor; // Color to change to when player enters trigger
@@ -16,23 +17,37 @@ public class NPC : MonoBehaviour, IInteractable
     private Image crosshairImage;
     private Color originalColor;
 
+
+    // !!!!!!!!!!!!!!!!!!!!!! SHOULD IMPLEMENT CROSSAIR SOMEWHERE ELSE, NOT ONLY FOR NPC. SO SHOULD MOVE THAT CODE
+
+
     private void Start()
     {
+        DialogManager.Instance.OnHideDialog += HideDialog;
         // Get the Image component of the crosshair GameObject
         crosshairImage = canInteractCrosshair.GetComponent<Image>();
         // Store the original color of the crosshair
         originalColor = crosshairImage.color;
     }
+
+    private void HideDialog()
+    {
+        InteractImage.SetActive(false);
+    }
+
     public void Interact()
     {
         if(canInteract)
         {
-            StartCoroutine(DialogManager.Instance.ShowDialog(dialog));
+            InteractImage.SetActive(true);
+           StartCoroutine(DialogManager.Instance.ShowDialog(dialog));
             canInteract = false;
             canInteractObject.SetActive(false);
             crosshairImage.color = originalColor;
+   
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player") && canInteract)
