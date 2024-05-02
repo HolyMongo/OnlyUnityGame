@@ -23,7 +23,7 @@ public class EnemySO : ScriptableObject
         Air
     }
 
-
+    [SerializeField] private LayerMask layerMask;
 
 
 
@@ -65,15 +65,15 @@ public class EnemySO : ScriptableObject
     }
 
     
-    public void Attack(Type _type, Element _element)
+    public void Attack(Type _type, Element _element, BaseEnemy caller)
     {
         switch (_type)
         {
             case Type.Exploding:
-                ExlodingAttack(_element);
+                ExlodingAttack(_element, caller);
                 break;
             case Type.Ranged:
-                RangedAttack(_element);
+                RangedAttack(_element, caller);
                 break;
             case Type.Mele:
                 break;
@@ -84,12 +84,38 @@ public class EnemySO : ScriptableObject
         }
     }
 
-    private void ExlodingAttack(Element _element)
+    private void ExlodingAttack(Element _element, BaseEnemy caller)
     {
-       
+        Collider[] damagableObjects;
+        IDamagable temp;
+        switch (_element)
+        {
+            case Element.Normal:
+                damagableObjects = Physics.OverlapSphere(caller.transform.position, 10, layerMask);
+                for (int i = 0; i < damagableObjects.Length; i++)
+                {
+                    if (damagableObjects[i].TryGetComponent<IDamagable>(out temp))
+                    {
+                        temp.TakeDamage(50);
+                    }
+                }
+                //play animation or partical
+                caller.TakeDamage(10000000);
+                break;
+            case Element.Ice:
+                break;
+            case Element.Fire:
+                break;
+            case Element.Earth:
+                break;
+            case Element.Air:
+                break;
+            default:
+                break;
+        }
     } 
     
-    private void RangedAttack(Element _element)
+    private void RangedAttack(Element _element, BaseEnemy caller)
     {
 
     }

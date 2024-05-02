@@ -8,18 +8,25 @@ public class BaseEnemy : MonoBehaviour, IDamagable
     [SerializeField] private EnemySO.Type type;
     [SerializeField] private EnemySO.Element element;
     [SerializeField] private float health;
+    [SerializeField] private EnemyStates states;
 
 
     private void Start()
     {
         health = enemySO.GetMaxHP(type);
+        states = transform.GetComponent<EnemyStates>();
     }
 
     public void TakeDamage(float damage) {
         health -= damage;
         if (health <= 0)
         {
-            Debug.Log("Dead");
+            states.CheatAnim(EnemyState.Dying);
         }
+    }
+
+    public void Attack()
+    {
+        enemySO.Attack(type, element, this);
     }
 }

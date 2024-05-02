@@ -20302,6 +20302,7 @@ MonoBehaviour:
   type: 0
   element: 0
   health: 0
+  states: {fileID: 0}
 --- !u!1 &395490982
 GameObject:
   m_ObjectHideFlags: 0
@@ -39152,6 +39153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathfinding: {fileID: 1144131245}
   animator: {fileID: 1144131248}
+  baseEnemy: {fileID: 0}
 --- !u!114 &1144131245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39174,7 +39176,7 @@ MonoBehaviour:
     m_Bits: 65
   player: {fileID: 0}
   agent: {fileID: 0}
-  pathfindinginterval: 0.5
+  pathfindinginterval: 0.1
   endTargetmargin: 0.5
   startPosition: {x: 0, y: 0, z: 0}
   detectedPlayers: []
@@ -39216,6 +39218,7 @@ MonoBehaviour:
   type: 0
   element: 0
   health: 0
+  states: {fileID: 0}
 --- !u!95 &1144131248
 Animator:
   serializedVersion: 5

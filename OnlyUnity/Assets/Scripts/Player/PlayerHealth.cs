@@ -3,15 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour, IDamagable
 {
-    [SerializeField] private int _health;
-    public int Health => _health;
+    [SerializeField] private float _health;
+    public float Health => _health;
     public PlayAudio DamageSound;
 
     public event Action OnRecievedDamage;
     public event Action OnDead;
     public event Action OnretrievedHealth;
+
+    
 
     private bool isAlive = true;
     public static PlayerHealth Instance { get; private set; }
@@ -27,7 +29,12 @@ public class PlayerHealth : MonoBehaviour
     {
         OnretrievedHealth?.Invoke();
     }
-    public void RecievedDamage(int amount)
+
+    public void TakeDamage(float damage)
+    {
+        RecievedDamage(damage);
+    }
+    public void RecievedDamage(float amount)
     {
         if(isAlive)
         {
