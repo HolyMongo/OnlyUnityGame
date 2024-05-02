@@ -42,7 +42,6 @@ public class Pathfinding : MonoBehaviour
         detectedPlayers = Physics.OverlapSphere(transform.position, detectionRadius, layerMask);
         if (detectedPlayers.Length > 0)
         {
-            StateHandler?.Invoke(EnemyState.Walking);
             player = detectedPlayers[0].transform;
             Debug.Log("Found player");
 
@@ -63,6 +62,7 @@ public class Pathfinding : MonoBehaviour
                     {
                         awareOfThePlayer = false;
                         agent.destination = startPosition;
+                        StateHandler?.Invoke(EnemyState.Walking);
                     }
                 }
             }
@@ -72,6 +72,7 @@ public class Pathfinding : MonoBehaviour
                 {
                     awareOfThePlayer = false;
                     agent.destination = startPosition;
+                    StateHandler?.Invoke(EnemyState.Walking);
                 }
             }
             else
@@ -79,7 +80,7 @@ public class Pathfinding : MonoBehaviour
                 if (agent.remainingDistance <= endTargetmargin)
                 {
                     agent.destination = startPosition;
-                    StateHandler?.Invoke(EnemyState.Idle);
+                    StateHandler?.Invoke(EnemyState.Walking);
                 }
             }
         }
@@ -97,6 +98,7 @@ public class Pathfinding : MonoBehaviour
                 {
                         awareOfThePlayer = false;
                         agent.destination = startPosition;
+                        StateHandler?.Invoke(EnemyState.Walking);
                         //Om vi når våran destination där vi såg spelaren men kan inte se hen nu så väntar vi i x sekunder sedan återvänder vi till våran orginella plats
                 }
             }
@@ -104,13 +106,17 @@ public class Pathfinding : MonoBehaviour
         else if (!awareOfThePlayer && agent.remainingDistance <= endTargetmargin)
         {
             agent.destination = startPosition;
-            StateHandler?.Invoke(EnemyState.Idle);
+            StateHandler?.Invoke(EnemyState.Walking);
         }
     }
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(agent.velocity.magnitude);
+        if (agent.velocity.magnitude <= 3.4f)
+        {
+            StateHandler?.Invoke(EnemyState.Idle);
+        }
     }
     private void FixedUpdate()
     {
@@ -120,6 +126,7 @@ public class Pathfinding : MonoBehaviour
     private void PathfindToPlayer()
     {
         agent.destination = player.position;
+        StateHandler?.Invoke(EnemyState.Walking);
     }
     private void OnDrawGizmosSelected()
     {
