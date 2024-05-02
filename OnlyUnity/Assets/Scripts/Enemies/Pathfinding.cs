@@ -132,6 +132,10 @@ public class Pathfinding : MonoBehaviour
         agent.destination = player.position;
         StateHandler?.Invoke(EnemyState.Walking);
 
+        if (Vector3.Distance(transform.position, player.position) <= 5)
+        {
+            StateHandler?.Invoke(EnemyState.Attacking);
+        }
         //if (transform.position.sqrMagnitude >= player.position.sqrMagnitude)
         //    StateHandler?.Invoke(EnemyState.Attacking);
     }
