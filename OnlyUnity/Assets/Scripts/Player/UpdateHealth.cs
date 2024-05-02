@@ -9,6 +9,7 @@ public class UpdateHealth : MonoBehaviour
 
     public void Start()
     {
+        PlayerHealth.Instance.OnRecievedDamage += UpdateUI;
         health.text = "Health " + PlayerHealth.Instance.Health;
     }
 
@@ -16,12 +17,5 @@ public class UpdateHealth : MonoBehaviour
     {
         health.text = "Health " + PlayerHealth.Instance.Health;
     }
-    public void OnEnable()
-    {
-        PlayerHealth.Instance.OnRecievedDamage += UpdateUI;
-    }
-    public void OnDisable()
-    {
-        PlayerHealth.Instance.OnRecievedDamage -= UpdateUI;
-    }
+
 }
