@@ -29,9 +29,11 @@ public class EnemyStates : MonoBehaviour
                 animator.SetBool("IsWalking", false);
                 break;
             case EnemyState.Walking:
+                animator.SetBool("IsAttacking", false);
                 animator.SetBool("IsWalking", true);
                 break;
             case EnemyState.Attacking:
+                animator.SetBool("IsAttacking", true);
                 break;
             case EnemyState.Dying:
                 break;

@@ -43,80 +43,84 @@ public class Pathfinding : MonoBehaviour
         if (detectedPlayers.Length > 0)
         {
             player = detectedPlayers[0].transform;
-            Debug.Log("Found player");
+            Debug.Log("Found player(In sphere)");
 
             if (Physics.Raycast(transform.position, player.position - transform.position, out RaycastHit hitInfo, Vector3.Distance(player.position, transform.position) + 10, layerMask2))
             {
-                Debug.Log("Hit Target1");
+                Debug.Log("Hit Target inside sphere");
                 if (/*hitInfo.transform.gameObject.layer == .... om saken raycasten träffade har layern Player --- (1 << hitInfo.transform.gameObject.layer) == layerMask.value*/ hitInfo.transform == player)
                 {
                     Debug.Log("Target is player");
                     //sätt det träffade objectet som våran target och sedan kalla på metoden nedan
-                    player = hitInfo.transform;
+                    player = hitInfo.transform; // Gör det ens något???????????????????????????????????????????????????????????????????????????????????????????
                     awareOfThePlayer = true;
                     PathfindToPlayer();
                 }
-                else
+                else //Hitinfo hit wall, or something else(Player sad =(    )
                 {
-                    if (agent.remainingDistance <= endTargetmargin)
-                    {
-                        awareOfThePlayer = false;
-                        agent.destination = startPosition;
-                        StateHandler?.Invoke(EnemyState.Walking);
-                    }
+                    Debug.Log("Wall in way or out of range(Inside sphere");
+                    if (agent.hasPath)
+                        WalkToStart();
                 }
             }
             else if (awareOfThePlayer)
             {
-                if (agent.remainingDistance <= endTargetmargin)
-                {
-                    awareOfThePlayer = false;
-                    agent.destination = startPosition;
-                    StateHandler?.Invoke(EnemyState.Walking);
-                }
+                WalkToStart();
+                Debug.Log("KÖR JAG?");
             }
             else
             {
-                if (agent.remainingDistance <= endTargetmargin)
-                {
-                    agent.destination = startPosition;
-                    StateHandler?.Invoke(EnemyState.Walking);
-                }
+                WalkToStart();
             }
         }
         else if (awareOfThePlayer)
         {
             if (Physics.Raycast(transform.position, player.position - transform.position, out RaycastHit hitInfo, Vector3.Distance(player.position, transform.position) + 10, layerMask2))
             {
-                Debug.Log("Hit Target2");
+                Debug.Log("Hit Target outside sphere");
                 if (/*hitInfo.transform.gameObject.layer == .... om saken raycasten träffade har layern Player --- (1 << hitInfo.transform.gameObject.layer) == layerMask.value*/ hitInfo.transform == player)
                 {
-                    Debug.Log("Found player but putside sphere");
+                    Debug.Log("Found player but outside sphere");
                     PathfindToPlayer();
                 }
-                else if (agent.remainingDistance <= endTargetmargin)
+                else 
                 {
-                        awareOfThePlayer = false;
-                        agent.destination = startPosition;
-                        StateHandler?.Invoke(EnemyState.Walking);
-                        //Om vi når våran destination där vi såg spelaren men kan inte se hen nu så väntar vi i x sekunder sedan återvänder vi till våran orginella plats
+                    awareOfThePlayer = false;
+                    //Om vi når våran destination där vi såg spelaren men kan inte se hen nu så väntar vi i x sekunder sedan återvänder vi till våran orginella plats
                 }
             }
         }
-        else if (!awareOfThePlayer && agent.remainingDistance <= endTargetmargin)
+        else
         {
+            WalkToStart();
+
+            if (agent.hasPath == false)
+            {
+                StateHandler?.Invoke(EnemyState.Idle);
+                Debug.Log("Idle");
+            }
+        }
+    }
+
+    private void WalkToStart() // Must go to end destination
+    {
+        if (agent.remainingDistance <= endTargetmargin)
+        {
+            awareOfThePlayer = false;
             agent.destination = startPosition;
             StateHandler?.Invoke(EnemyState.Walking);
         }
     }
+
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(agent.velocity.magnitude);
-        if (agent.velocity.magnitude <= 3.4f)
-        {
-            StateHandler?.Invoke(EnemyState.Idle);
-        }
+       // Debug.Log(agent.velocity.magnitude);
+        //if (agent.hasPath == false)
+        //{
+        //    StateHandler?.Invoke(EnemyState.Idle);
+        //    Debug.Log("Running");
+        //}
     }
     private void FixedUpdate()
     {
@@ -127,6 +131,9 @@ public class Pathfinding : MonoBehaviour
     {
         agent.destination = player.position;
         StateHandler?.Invoke(EnemyState.Walking);
+
+        //if (transform.position.sqrMagnitude >= player.position.sqrMagnitude)
+        //    StateHandler?.Invoke(EnemyState.Attacking);
     }
     private void OnDrawGizmosSelected()
     {

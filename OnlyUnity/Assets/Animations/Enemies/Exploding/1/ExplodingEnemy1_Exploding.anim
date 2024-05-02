@@ -43,7 +43,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: Body/Eyes/RightEye
+    path: Exploding Enemy Enemy/Body/Eyes/RightEye
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -73,7 +73,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: Body/Eyes/RightEye
+    path: Exploding Enemy Enemy/Body/Eyes/RightEye
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -103,7 +103,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: Body/Eyes/RightEye
+    path: Exploding Enemy Enemy/Body/Eyes/RightEye
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -133,7 +133,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: Body/Eyes/RightEye
+    path: Exploding Enemy Enemy/Body/Eyes/RightEye
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -163,7 +163,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: Body/Eyes/LeftEye
+    path: Exploding Enemy Enemy/Body/Eyes/LeftEye
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -193,7 +193,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: Body/Eyes/LeftEye
+    path: Exploding Enemy Enemy/Body/Eyes/LeftEye
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -223,7 +223,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: Body/Eyes/LeftEye
+    path: Exploding Enemy Enemy/Body/Eyes/LeftEye
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -253,7 +253,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: Body/Eyes/LeftEye
+    path: Exploding Enemy Enemy/Body/Eyes/LeftEye
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -263,7 +263,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 9.734289
+        value: 2.9056613
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -271,8 +271,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.33333334
-        value: 220.26186
+        time: 0.6666667
+        value: 145.31865
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -283,7 +283,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._EmissionColor.r
-    path: Body/Top/Top (11)
+    path: Exploding Enemy Enemy/Body/Top/Top (11)
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -293,7 +293,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 3.1013558
+        value: 0.92574704
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -301,8 +301,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.33333334
-        value: 70.17568
+        time: 0.6666667
+        value: 46.298683
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -313,7 +313,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._EmissionColor.g
-    path: Body/Top/Top (11)
+    path: Exploding Enemy Enemy/Body/Top/Top (11)
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -323,7 +323,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1.42341
+        value: 0.42488435
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -331,8 +331,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.33333334
-        value: 32.2081
+        time: 0.6666667
+        value: 21.249414
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -343,7 +343,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._EmissionColor.b
-    path: Body/Top/Top (11)
+    path: Exploding Enemy Enemy/Body/Top/Top (11)
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -361,7 +361,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.33333334
+        time: 0.6666667
         value: 1
         inSlope: 0
         outSlope: 0
@@ -373,7 +373,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._EmissionColor.a
-    path: Body/Top/Top (11)
+    path: Exploding Enemy Enemy/Body/Top/Top (11)
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -386,7 +386,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 4157108669
+      path: 2305765681
       attribute: 1571785585
       script: {fileID: 0}
       typeID: 23
@@ -395,7 +395,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 4157108669
+      path: 2305765681
       attribute: 1840221041
       script: {fileID: 0}
       typeID: 23
@@ -404,7 +404,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2157698239
+      path: 2527587762
       attribute: 1571785585
       script: {fileID: 0}
       typeID: 23
@@ -413,7 +413,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2157698239
+      path: 2527587762
       attribute: 1840221041
       script: {fileID: 0}
       typeID: 23
@@ -422,7 +422,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 447390540
+      path: 211194433
       attribute: 1218664834
       script: {fileID: 0}
       typeID: 23
@@ -431,7 +431,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 447390540
+      path: 211194433
       attribute: 1487100290
       script: {fileID: 0}
       typeID: 23
@@ -440,7 +440,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 447390540
+      path: 211194433
       attribute: 1755535746
       script: {fileID: 0}
       typeID: 23
@@ -449,7 +449,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 4157108669
+      path: 2305765681
       attribute: 1303350129
       script: {fileID: 0}
       typeID: 23
@@ -458,7 +458,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 4157108669
+      path: 2305765681
       attribute: 2108656497
       script: {fileID: 0}
       typeID: 23
@@ -467,7 +467,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2157698239
+      path: 2527587762
       attribute: 1303350129
       script: {fileID: 0}
       typeID: 23
@@ -476,7 +476,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2157698239
+      path: 2527587762
       attribute: 2108656497
       script: {fileID: 0}
       typeID: 23
@@ -485,7 +485,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 447390540
+      path: 211194433
       attribute: 2023971202
       script: {fileID: 0}
       typeID: 23
@@ -499,7 +499,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.33333334
+    m_StopTime: 0.6666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -541,7 +541,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: Body/Eyes/RightEye
+    path: Exploding Enemy Enemy/Body/Eyes/RightEye
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -571,7 +571,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: Body/Eyes/RightEye
+    path: Exploding Enemy Enemy/Body/Eyes/RightEye
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -601,7 +601,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: Body/Eyes/RightEye
+    path: Exploding Enemy Enemy/Body/Eyes/RightEye
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -631,7 +631,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: Body/Eyes/RightEye
+    path: Exploding Enemy Enemy/Body/Eyes/RightEye
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -661,7 +661,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: Body/Eyes/LeftEye
+    path: Exploding Enemy Enemy/Body/Eyes/LeftEye
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -691,7 +691,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: Body/Eyes/LeftEye
+    path: Exploding Enemy Enemy/Body/Eyes/LeftEye
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -721,7 +721,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: Body/Eyes/LeftEye
+    path: Exploding Enemy Enemy/Body/Eyes/LeftEye
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -751,7 +751,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: Body/Eyes/LeftEye
+    path: Exploding Enemy Enemy/Body/Eyes/LeftEye
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -761,7 +761,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 9.734289
+        value: 2.9056613
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -769,8 +769,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.33333334
-        value: 220.26186
+        time: 0.6666667
+        value: 145.31865
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -781,7 +781,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._EmissionColor.r
-    path: Body/Top/Top (11)
+    path: Exploding Enemy Enemy/Body/Top/Top (11)
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -791,7 +791,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 3.1013558
+        value: 0.92574704
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -799,8 +799,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.33333334
-        value: 70.17568
+        time: 0.6666667
+        value: 46.298683
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -811,7 +811,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._EmissionColor.g
-    path: Body/Top/Top (11)
+    path: Exploding Enemy Enemy/Body/Top/Top (11)
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -821,7 +821,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1.42341
+        value: 0.42488435
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -829,8 +829,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.33333334
-        value: 32.2081
+        time: 0.6666667
+        value: 21.249414
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -841,7 +841,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._EmissionColor.b
-    path: Body/Top/Top (11)
+    path: Exploding Enemy Enemy/Body/Top/Top (11)
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -859,7 +859,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.33333334
+        time: 0.6666667
         value: 1
         inSlope: 0
         outSlope: 0
@@ -871,7 +871,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._EmissionColor.a
-    path: Body/Top/Top (11)
+    path: Exploding Enemy Enemy/Body/Top/Top (11)
     classID: 23
     script: {fileID: 0}
     flags: 0
