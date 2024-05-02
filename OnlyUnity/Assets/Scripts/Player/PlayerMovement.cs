@@ -50,6 +50,9 @@ public class PlayerMovement : MonoBehaviour
         playerVelocity.y += _gravityValue * Time.deltaTime;
         _controller.Move(playerVelocity * Time.deltaTime);
 
+        if (Keyboard.current.spaceKey.isPressed)
+            PlayerHealth.Instance.RecievedDamage(10);
+
     }
     void OnMove(InputValue movementValue)
     {
