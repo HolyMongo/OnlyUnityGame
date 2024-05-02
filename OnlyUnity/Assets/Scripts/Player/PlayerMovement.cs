@@ -49,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
 
         playerVelocity.y += _gravityValue * Time.deltaTime;
         _controller.Move(playerVelocity * Time.deltaTime);
+
     }
     void OnMove(InputValue movementValue)
     {

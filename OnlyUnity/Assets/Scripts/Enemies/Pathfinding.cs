@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,12 +28,13 @@ public class Pathfinding : MonoBehaviour
     [Header("Testing")]
     [Tooltip("")] [SerializeField] private Collider[] detectedPlayers;
 
+    public event Action<EnemyState> StateHandler;
     void Start()
     {
         agent = transform.GetComponent<NavMeshAgent>();
         InvokeRepeating("CheckForPlayer", 0.5f, pathfindinginterval);
         startPosition = transform.position;
-        
+        StateHandler?.Invoke(EnemyState.Idle);
     }
     private void CheckForPlayer()
     {
@@ -40,6 +42,7 @@ public class Pathfinding : MonoBehaviour
         detectedPlayers = Physics.OverlapSphere(transform.position, detectionRadius, layerMask);
         if (detectedPlayers.Length > 0)
         {
+            StateHandler?.Invoke(EnemyState.Walking);
             player = detectedPlayers[0].transform;
             Debug.Log("Found player");
 
@@ -76,6 +79,7 @@ public class Pathfinding : MonoBehaviour
                 if (agent.remainingDistance <= endTargetmargin)
                 {
                     agent.destination = startPosition;
+                    StateHandler?.Invoke(EnemyState.Idle);
                 }
             }
         }
@@ -100,6 +104,7 @@ public class Pathfinding : MonoBehaviour
         else if (!awareOfThePlayer && agent.remainingDistance <= endTargetmargin)
         {
             agent.destination = startPosition;
+            StateHandler?.Invoke(EnemyState.Idle);
         }
     }
     // Update is called once per frame
