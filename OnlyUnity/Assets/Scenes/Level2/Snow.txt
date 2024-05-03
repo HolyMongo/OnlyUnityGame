@@ -2,4 +2,4 @@ Snö level
 -Snö - kan gå på
 -Is - glider på
 -DjupSnö - sjunker ner i
--Knapp - för att åka upp/ner
+-Platformar som försvinner
