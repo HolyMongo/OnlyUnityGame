@@ -43,14 +43,14 @@ public class Pathfinding : MonoBehaviour
         if (detectedPlayers.Length > 0)
         {
             player = detectedPlayers[0].transform;
-            Debug.Log("Found player(In sphere)");
+            //Debug.Log("Found player(In sphere)");
 
             if (Physics.Raycast(transform.position, player.position - transform.position, out RaycastHit hitInfo, Vector3.Distance(player.position, transform.position) + 10, layerMask2))
             {
-                Debug.Log("Hit Target inside sphere");
+               // Debug.Log("Hit Target inside sphere");
                 if (/*hitInfo.transform.gameObject.layer == .... om saken raycasten träffade har layern Player --- (1 << hitInfo.transform.gameObject.layer) == layerMask.value*/ hitInfo.transform == player)
                 {
-                    Debug.Log("Target is player");
+                   // Debug.Log("Target is player");
                     //sätt det träffade objectet som våran target och sedan kalla på metoden nedan
                     player = hitInfo.transform; // Gör det ens något???????????????????????????????????????????????????????????????????????????????????????????
                     awareOfThePlayer = true;
@@ -58,7 +58,7 @@ public class Pathfinding : MonoBehaviour
                 }
                 else //Hitinfo hit wall, or something else(Player sad =(    )
                 {
-                    Debug.Log("Wall in way or out of range(Inside sphere");
+                   // Debug.Log("Wall in way or out of range(Inside sphere");
                     if (agent.hasPath)
                         WalkToStart();
                 }
@@ -66,7 +66,7 @@ public class Pathfinding : MonoBehaviour
             else if (awareOfThePlayer)
             {
                 WalkToStart();
-                Debug.Log("KÖR JAG?");
+                //Debug.Log("KÖR JAG?");
             }
             else
             {
@@ -77,10 +77,10 @@ public class Pathfinding : MonoBehaviour
         {
             if (Physics.Raycast(transform.position, player.position - transform.position, out RaycastHit hitInfo, Vector3.Distance(player.position, transform.position) + 10, layerMask2))
             {
-                Debug.Log("Hit Target outside sphere");
+               // Debug.Log("Hit Target outside sphere");
                 if (/*hitInfo.transform.gameObject.layer == .... om saken raycasten träffade har layern Player --- (1 << hitInfo.transform.gameObject.layer) == layerMask.value*/ hitInfo.transform == player)
                 {
-                    Debug.Log("Found player but outside sphere");
+                    //Debug.Log("Found player but outside sphere");
                     PathfindToPlayer();
                 }
                 else 
@@ -97,7 +97,7 @@ public class Pathfinding : MonoBehaviour
             if (agent.hasPath == false)
             {
                 StateHandler?.Invoke(EnemyState.Idle);
-                Debug.Log("Idle");
+                //Debug.Log("Idle");
             }
         }
     }

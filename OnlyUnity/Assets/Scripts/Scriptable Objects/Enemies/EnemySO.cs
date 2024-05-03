@@ -100,7 +100,7 @@ public class EnemySO : ScriptableObject
                     }
                 }
                 //play animation or partical
-                caller.TakeDamage(10000000);
+                caller.TakeDamage(0);
                 break;
             case Element.Ice:
                 break;
