@@ -29482,16 +29482,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 441905878}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.831, y: 0.83, z: 4.222}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -1.73, y: 0.83, z: -13.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1558108134}
   - {fileID: 391349671}
-  - {fileID: 1454902727}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &441905880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62259,7 +62258,7 @@ Transform:
   m_GameObject: {fileID: 1144131242}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.2, y: 0.23, z: 32.99}
+  m_LocalPosition: {x: -21.55, y: 0.23, z: 22.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -73974,7 +73973,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1454902727}
   m_Layer: 8
-  m_Name: UI
+  m_Name: NPC_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73988,13 +73987,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1454902726}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.831, y: 0.83, z: 4.222}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 245903002}
-  m_Father: {fileID: 441905879}
+  m_Father: {fileID: 2076637637}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1456155966
 GameObject:
@@ -83528,11 +83527,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 748328c0061a5604d9bd13b1fb817060, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 97ed6de7581d5a34a9db82f0af519419, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.1
   m_Pitch: 0.6
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -96250,6 +96249,7 @@ Transform:
   m_Children:
   - {fileID: 1781358044}
   - {fileID: 268582783}
+  - {fileID: 1454902727}
   - {fileID: 1797845772}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
