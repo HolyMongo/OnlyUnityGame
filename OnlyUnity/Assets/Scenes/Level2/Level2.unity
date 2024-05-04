@@ -20585,6 +20585,7 @@ GameObject:
   - component: {fileID: 385414276}
   - component: {fileID: 385414278}
   - component: {fileID: 385414275}
+  - component: {fileID: 385414279}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -20889,6 +20890,21 @@ MonoBehaviour:
     m_Bits: 512
   damagables: []
   cooldownReady: 1
+  player: {fileID: 385414279}
+--- !u!114 &385414279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385414266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f9dafc68b658ac409f396350ce1a6c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 385414270}
+  _animator: {fileID: 385414274}
 --- !u!1 &388189035
 GameObject:
   m_ObjectHideFlags: 0

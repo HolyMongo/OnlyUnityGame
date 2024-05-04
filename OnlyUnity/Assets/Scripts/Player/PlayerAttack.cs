@@ -12,7 +12,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private LayerMask hitLayer;
     [SerializeField] private Collider[] damagables;
     [SerializeField] private bool cooldownReady;
-
+    public PlayerStates player;
 
     private void Start()
     {
@@ -29,6 +29,7 @@ public class PlayerAttack : MonoBehaviour
     }
     public void Attack(InputAction.CallbackContext obj)
     {
+        player.CheatAnim(PlayerState.Attacking);
         if (cooldownReady)
         {
             cooldownReady = false;

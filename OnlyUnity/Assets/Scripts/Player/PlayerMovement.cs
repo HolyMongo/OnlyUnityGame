@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,10 +22,13 @@ public class PlayerMovement : MonoBehaviour
     private Transform _cameraTransform;
     private CharacterController _controller;
 
+    public event Action<PlayerState> StateHandler;
+
     void Awake()
     {
         _controller = GetComponent<CharacterController>();
         _cameraTransform = Camera.main.transform;
+        StateHandler?.Invoke(PlayerState.Idle);
     }
 
     // Update is called once per frame
@@ -42,10 +46,12 @@ public class PlayerMovement : MonoBehaviour
 
         _controller.Move(movementDirection * Speed * Time.deltaTime);
 
-        //if (movementDirection != Vector3.zero)
-        //{
-        //    gameObject.transform.forward = movementDirection;
-        //}
+        if (movementDirection == Vector3.zero)
+        {
+            StateHandler?.Invoke(PlayerState.Idle);
+        }
+        else
+            StateHandler?.Invoke(PlayerState.Walking);
 
         playerVelocity.y += _gravityValue * Time.deltaTime;
         _controller.Move(playerVelocity * Time.deltaTime);
