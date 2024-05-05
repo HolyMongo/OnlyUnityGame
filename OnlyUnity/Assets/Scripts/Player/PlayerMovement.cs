@@ -52,8 +52,13 @@ public class PlayerMovement : MonoBehaviour
         {
             StateHandler?.Invoke(PlayerState.Idle);
         }
-        else
+       else if(sprintMultiplier == 1)
             StateHandler?.Invoke(PlayerState.Walking);
+        else if (sprintMultiplier != 1)
+            StateHandler?.Invoke(PlayerState.Sprinting);
+
+        //else
+        //    StateHandler?.Invoke(PlayerState.Walking);
 
         playerVelocity.y += _gravityValue * Time.deltaTime;
         _controller.Move(playerVelocity * Time.deltaTime);
@@ -65,6 +70,7 @@ public class PlayerMovement : MonoBehaviour
     void OnMove(InputValue movementValue)
     {
         _movementVector = movementValue.Get<Vector2>();
+        StateHandler?.Invoke(PlayerState.Walking);
     }
     void OnJump()
     {
