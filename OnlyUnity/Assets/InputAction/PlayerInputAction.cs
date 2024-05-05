@@ -37,10 +37,19 @@ public partial class @PlayerInputActionScript: IInputActionCollection2, IDisposa
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Sprint"",
+                    ""name"": ""SprintActivate"",
                     ""type"": ""Value"",
                     ""id"": ""fbb3494f-545b-4bb8-ab50-8be6a7acc457"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""SprintCancel"",
+                    ""type"": ""Value"",
+                    ""id"": ""3b26787b-4d4b-45a1-9bb7-a7e166820129"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -316,138 +325,6 @@ public partial class @PlayerInputActionScript: IInputActionCollection2, IDisposa
                 },
                 {
                     ""name"": """",
-                    ""id"": ""011a600d-d627-4cf1-a8d3-db730cb4b0d1"",
-                    ""path"": ""<Gamepad>/leftStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Sprint"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""WASD"",
-                    ""id"": ""22a1bdeb-f96f-4890-b45b-62b3994b123f"",
-                    ""path"": ""Dpad"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Sprint"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""4298a517-f583-4fb2-9e4d-326328c4ff1a"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Sprint"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""bf9f0afd-2258-4775-9c32-0cf1c8209ec2"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Sprint"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""41ee6616-1395-4cd9-ba04-abca9f344b51"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Sprint"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""97fc8016-5b8b-4d6b-a9ba-cddec4a360be"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Sprint"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""bc84077c-38f7-413e-99c5-36335b7616a5"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Sprint"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""99650607-e8b1-4e66-b9e9-3ca0d18ae0b6"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Sprint"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""9e650d0e-ca96-41c7-8896-68352fb47e7d"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Sprint"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""e90dc063-9858-4f78-8b61-ecaac9551879"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Sprint"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9c7cb0c2-0047-4596-9106-02dea22b7ea8"",
-                    ""path"": ""<XRController>/{Primary2DAxis}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""XR"",
-                    ""action"": ""Sprint"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e1ce972f-bd94-41ff-a14d-a3919e686fad"",
-                    ""path"": ""<Joystick>/stick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Joystick"",
-                    ""action"": ""Sprint"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""6faf600f-d063-47b1-a969-d5a114835155"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
@@ -465,6 +342,50 @@ public partial class @PlayerInputActionScript: IInputActionCollection2, IDisposa
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dba5ba8d-316d-4935-aa15-e1e8bb23bf47"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SprintActivate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9da67865-677b-4b8b-98ba-f69bcc2ebcc6"",
+                    ""path"": ""<Gamepad>/leftStickPress"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SprintActivate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4d789326-98ba-4da5-aa94-7d73be0faba7"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SprintCancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""82798bca-e76f-43c4-9617-4ccb38df30ba"",
+                    ""path"": ""<Gamepad>/leftStickPress"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SprintCancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1053,7 +974,8 @@ public partial class @PlayerInputActionScript: IInputActionCollection2, IDisposa
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
+        m_Player_SprintActivate = m_Player.FindAction("SprintActivate", throwIfNotFound: true);
+        m_Player_SprintCancel = m_Player.FindAction("SprintCancel", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
@@ -1132,7 +1054,8 @@ public partial class @PlayerInputActionScript: IInputActionCollection2, IDisposa
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_Sprint;
+    private readonly InputAction m_Player_SprintActivate;
+    private readonly InputAction m_Player_SprintCancel;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_Jump;
@@ -1142,7 +1065,8 @@ public partial class @PlayerInputActionScript: IInputActionCollection2, IDisposa
         private @PlayerInputActionScript m_Wrapper;
         public PlayerActions(@PlayerInputActionScript wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
-        public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
+        public InputAction @SprintActivate => m_Wrapper.m_Player_SprintActivate;
+        public InputAction @SprintCancel => m_Wrapper.m_Player_SprintCancel;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
@@ -1159,9 +1083,12 @@ public partial class @PlayerInputActionScript: IInputActionCollection2, IDisposa
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
-            @Sprint.started += instance.OnSprint;
-            @Sprint.performed += instance.OnSprint;
-            @Sprint.canceled += instance.OnSprint;
+            @SprintActivate.started += instance.OnSprintActivate;
+            @SprintActivate.performed += instance.OnSprintActivate;
+            @SprintActivate.canceled += instance.OnSprintActivate;
+            @SprintCancel.started += instance.OnSprintCancel;
+            @SprintCancel.performed += instance.OnSprintCancel;
+            @SprintCancel.canceled += instance.OnSprintCancel;
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
@@ -1181,9 +1108,12 @@ public partial class @PlayerInputActionScript: IInputActionCollection2, IDisposa
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
-            @Sprint.started -= instance.OnSprint;
-            @Sprint.performed -= instance.OnSprint;
-            @Sprint.canceled -= instance.OnSprint;
+            @SprintActivate.started -= instance.OnSprintActivate;
+            @SprintActivate.performed -= instance.OnSprintActivate;
+            @SprintActivate.canceled -= instance.OnSprintActivate;
+            @SprintCancel.started -= instance.OnSprintCancel;
+            @SprintCancel.performed -= instance.OnSprintCancel;
+            @SprintCancel.canceled -= instance.OnSprintCancel;
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
@@ -1379,7 +1309,8 @@ public partial class @PlayerInputActionScript: IInputActionCollection2, IDisposa
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnSprint(InputAction.CallbackContext context);
+        void OnSprintActivate(InputAction.CallbackContext context);
+        void OnSprintCancel(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);

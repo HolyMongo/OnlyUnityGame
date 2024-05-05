@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Speed")]
     [SerializeField] private float Speed;
+    [SerializeField] private float sprintBonus = 2;
+    private float sprintMultiplier = 1;
     private Vector2 _movementVector;
    
 
@@ -44,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
           movementDirection.y = 0f; // Ensure movement is only in the horizontal plane
           movementDirection.Normalize(); // Normalize to ensure consistent movement speed
 
-        _controller.Move(movementDirection * Speed * Time.deltaTime);
+        _controller.Move(movementDirection * Speed * sprintMultiplier * Time.deltaTime);
 
         if (movementDirection == Vector3.zero)
         {
@@ -70,6 +72,14 @@ public class PlayerMovement : MonoBehaviour
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * _gravityValue);
         }
+    }
+    void OnSprintActivate()
+    {
+        sprintMultiplier = sprintBonus;
+    }
+    void OnSprintCancel()
+    {
+        sprintMultiplier = 1;
     }
     private void OnDrawGizmosSelected()
     {

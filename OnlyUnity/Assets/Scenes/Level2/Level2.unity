@@ -27383,6 +27383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 5.5
+  sprintBonus: 2
   jumpHeight: 1.2
   groundDistance: 0.4
   ground:
@@ -42176,6 +42177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 0
+  sprintBonus: 2
   jumpHeight: 0
   groundDistance: 0.4
   ground:
