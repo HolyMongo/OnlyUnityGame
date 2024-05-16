@@ -41,12 +41,18 @@ public class PlayerMovement : MonoBehaviour
         {
             playerVelocity.y = 0f;
         }
+        else if(_controller.isGrounded == false)
+        {
+            playerVelocity.y += _gravityValue * Time.deltaTime;
+        }
 
-        Vector3 movementDirection = _cameraTransform.forward * _movementVector.y + _cameraTransform.right * _movementVector.x;
-          movementDirection.y = 0f; // Ensure movement is only in the horizontal plane
+        Vector3 movementDirection = transform.forward * _movementVector.y + transform.right * _movementVector.x;
+         // movementDirection.y = 0f; // Ensure movement is only in the horizontal plane
           movementDirection.Normalize(); // Normalize to ensure consistent movement speed
+        playerVelocity.x = movementDirection.x;
+        playerVelocity.z = movementDirection.z;
 
-        _controller.Move(movementDirection * Speed * sprintMultiplier * Time.deltaTime);
+        _controller.Move(playerVelocity * Speed * sprintMultiplier * Time.deltaTime);
 
         if (movementDirection == Vector3.zero)
         {
@@ -60,8 +66,8 @@ public class PlayerMovement : MonoBehaviour
         //else
         //    StateHandler?.Invoke(PlayerState.Walking);
 
-        playerVelocity.y += _gravityValue * Time.deltaTime;
-        _controller.Move(playerVelocity * Time.deltaTime);
+      
+       // _controller.Move(playerVelocity * Time.deltaTime);
 
         //if (Keyboard.current.spaceKey.isPressed)
         //    PlayerHealth.Instance.RecievedDamage(1);
@@ -76,7 +82,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Physics.CheckSphere(transform.position, groundDistance, ground))
         {
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * _gravityValue);
+            //  playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * _gravityValue);
+            playerVelocity.y = jumpHeight;
         }
     }
     void OnSprintActivate()

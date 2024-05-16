@@ -18,7 +18,7 @@ public class PlayerStates : MonoBehaviour
 
     private void Start()
     {
-        _animator.GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
         player.StateHandler += Player_StateHandler;
     }
 
@@ -30,7 +30,7 @@ public class PlayerStates : MonoBehaviour
     private void Player_StateHandler(PlayerState state)
     {
         _state = state;
-        switch (state)
+        switch (_state)
         {
             case PlayerState.Idle:
                 _animator.SetBool("IsWalking", false);
@@ -53,7 +53,7 @@ public class PlayerStates : MonoBehaviour
                 _animator.SetBool("IsWalking", false);
                 _animator.SetBool("IsSprinting", false);
                 _animator.SetBool("IsIdle", false);
-                //Attacking
+                Debug.Log("Attacking");
                 break;
             case PlayerState.Dying:
                 Debug.Log("Dead");
@@ -61,5 +61,19 @@ public class PlayerStates : MonoBehaviour
             default:
                 break;
         }
+    }
+    private IEnumerator AttackAnimationCoroutine()
+    {
+        _animator.SetBool("IsAttacking", true);
+        _animator.SetBool("IsWalking", false);
+        _animator.SetBool("IsSprinting", false);
+        _animator.SetBool("IsIdle", false);
+
+        // Wait for the duration of the attacking animation
+        yield return new WaitForSeconds(1.19f);
+
+        // Once the animation is finished, transition back to Idle or another appropriate state
+        //_animator.SetBool("IsAttacking", false);
+        //_animator.SetBool("IsIdle", true); // Example: Switch back to Idle state
     }
 }

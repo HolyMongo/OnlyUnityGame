@@ -5,11 +5,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerMouseLook : MonoBehaviour
 {
-    public float mouseSensitivity = 100f;
+    public float mouseSensitivity = 80f;
     public Transform player;
     private Vector2 _mouseVector;
-    //private float xRotation = 0f;
-    private float yRotation = 0f;
+  
+    private float mouseY;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -20,14 +20,16 @@ public class PlayerMouseLook : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        float mouseX = _mouseVector.x * mouseSensitivity * Time.deltaTime;
-        float mouseY = _mouseVector.y * mouseSensitivity * Time.deltaTime;
-        //xRotation -= mouseY;
-        //xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-        //yRotation -= mouseX;
-        yRotation = Mathf.Clamp(-mouseY, -45f, 45f);
-        transform.Rotate(yRotation, 0f, 0f);
-        player.Rotate(Vector3.up * mouseX);
+
+        //Handle horizontal
+        float mouseX = _mouseVector.x * mouseSensitivity;
+        player.Rotate(0, mouseX, 0);
+
+        //Handle Vertical
+        mouseY -= _mouseVector.y * mouseSensitivity;
+        mouseY = Mathf.Clamp(mouseY, -45f, 45f);
+        transform.localRotation = Quaternion.Euler(mouseY, 0, 0);
+      
     }
     void OnLook(InputValue MouseValue)
     {

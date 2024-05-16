@@ -27384,7 +27384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 5.5
   sprintBonus: 2
-  jumpHeight: 1.2
+  jumpHeight: 2.5
   groundDistance: 0.4
   ground:
     serializedVersion: 2
@@ -81999,7 +81999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb0185cfa1db694c8bb87cab14d8562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 20
+  mouseSensitivity: 0.2
   player: {fileID: 385414268}
 --- !u!1 &1693366128
 GameObject:
