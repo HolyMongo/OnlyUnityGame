@@ -6,7 +6,7 @@ public enum State { FreeRoam, Dialog, Dead}
 public class GameManager : MonoBehaviour
 {
     private State currentState = State.FreeRoam;
-    [SerializeField] private PlayerMovement Player;
+    [SerializeField] private PlayerController Player;
     // Start is called before the first frame update
     //public static GameManager Instance { get; private set; }
     //public void Awake()

@@ -22,8 +22,8 @@ public class UpdateHealth : MonoBehaviour
     public GameObject DeathUIObject;
 
     //Disable PlayerMovement and CameraLookAround when dead
-    [SerializeField] private PlayerMovement playerMovement;
-    [SerializeField] private PlayerMouseLook playerMouseLook;
+    [SerializeField] private PlayerController playerMovement;
+    //[SerializeField] private PlayerMouseLook playerMouseLook;
 
     public void Start()
     {
@@ -70,7 +70,7 @@ public class UpdateHealth : MonoBehaviour
     private void DeathUI()
     {
         playerMovement.enabled = false;
-        playerMouseLook.enabled = false;
+       // playerMouseLook.enabled = false;
         Cursor.lockState = CursorLockMode.None;
         DeathUIObject.SetActive(true);
     }
